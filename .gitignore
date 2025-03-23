@@ -11,6 +11,9 @@
 # production
 /build
 
+#backup
+/app/dashboards/candidates/page_.tsx
+
 # debug
 npm-debug.log*
 yarn-debug.log*

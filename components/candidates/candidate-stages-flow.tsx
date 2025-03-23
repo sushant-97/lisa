@@ -1,8 +1,7 @@
-// path: components/candidates/candidate-stages-flow.tsx
 "use client"
 
+import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { ChevronRight } from "lucide-react"
 
 const stages = [
   { id: "leads", name: "Leads", count: 11, active: true },
@@ -15,29 +14,29 @@ const stages = [
 
 export function CandidateStagesFlow() {
   return (
-    <div className="flex justify-between overflow-x-auto">
-      {stages.map((stage, index) => (
-        <div key={stage.id} className="flex items-center">
-          <div
-            className={cn(
-              "rounded border px-3 py-1.5 flex items-center whitespace-nowrap text-sm",
-              stage.active ? "bg-white" : "bg-gray-50"
-            )}
-          >
-            {stage.name}
-            <span className={cn(
-              "rounded-full px-1.5 py-0.5 text-xs ml-1.5",
-              stage.count > 0 ? "bg-gray-100" : "bg-gray-50 text-gray-400",
-            )}>
-              {stage.count}
-            </span>
-          </div>
-
-          {/* Arrow between stages */}
-          {index < stages.length - 1 && (
-            <ChevronRight className="mx-1.5 h-4 w-4 text-gray-400 flex-shrink-0" />
+    <div className="flex flex-wrap gap-2">
+      {stages.map((stage) => (
+        <Button
+          key={stage.id}
+          variant={stage.active ? "default" : "outline"}
+          className={cn(
+            "h-10 gap-2 font-normal",
+            stage.active ? "bg-primary text-primary-foreground" : ""
           )}
-        </div>
+        >
+          {stage.id === "leads" && (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 5v14M5 12h14"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+          {stage.name} ({stage.count})
+        </Button>
       ))}
     </div>
   )
