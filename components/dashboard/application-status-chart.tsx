@@ -1,7 +1,7 @@
 "use client"
 
-import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
+import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts"
 
 const data = [
   { name: "Applied", value: 25, color: "hsl(var(--chart-1))" },
@@ -50,16 +50,17 @@ export function ApplicationStatusChart() {
             dataKey="value"
             nameKey="name"
             label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-            labelLine={false}
+            labelLine={true}
+            strokeWidth={1}
+            stroke="#fff"
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
             ))}
           </Pie>
-          <ChartTooltip content={<ChartTooltipContent />} />
+          <Tooltip content={<ChartTooltipContent />} />
         </PieChart>
       </ResponsiveContainer>
     </ChartContainer>
   )
 }
-

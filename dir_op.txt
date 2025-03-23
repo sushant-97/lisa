@@ -1,0 +1,130 @@
+.
+├── app
+│   ├── dashboard
+│   │   ├── applications
+│   │   │   ├── [id]
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── candidates
+│   │   │   └── page.tsx
+│   │   ├── documents
+│   │   │   └── page.tsx
+│   │   ├── jobs
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── not-found.jsx
+│   └── page.tsx
+├── components
+│   ├── Header.jsx
+│   ├── applications
+│   │   ├── application-detail.tsx
+│   │   ├── application-notes.tsx
+│   │   ├── application-timeline.tsx
+│   │   ├── applications-filter.tsx
+│   │   └── applications-table.tsx
+│   ├── candidates
+│   │   ├── application-status.tsx
+│   │   ├── candidate-profile-view.tsx
+│   │   ├── candidate-stages-flow.tsx
+│   │   ├── candidate-stages.tsx
+│   │   ├── candidates-filter.tsx
+│   │   ├── candidates-list-updated.tsx
+│   │   ├── candidates-list.tsx
+│   │   └── job-selector.tsx
+│   ├── dashboard
+│   │   ├── application-stats.tsx
+│   │   ├── application-status-chart.tsx
+│   │   ├── recent-applications.tsx
+│   │   ├── sidebar.tsx
+│   │   └── upcoming-interviews.tsx
+│   ├── documents
+│   │   ├── document-list.tsx
+│   │   ├── documents-filter.tsx
+│   │   └── documents-grid.tsx
+│   ├── header-navigation.tsx
+│   ├── jobs
+│   │   ├── jobs-filter.tsx
+│   │   └── jobs-list.tsx
+│   ├── mode-toggle.tsx
+│   ├── theme-provider.tsx
+│   ├── ui
+│   │   ├── accordion.tsx
+│   │   ├── alert-dialog.tsx
+│   │   ├── alert.tsx
+│   │   ├── aspect-ratio.tsx
+│   │   ├── avatar.tsx
+│   │   ├── badge.tsx
+│   │   ├── breadcrumb.tsx
+│   │   ├── button.tsx
+│   │   ├── calendar.tsx
+│   │   ├── card.tsx
+│   │   ├── carousel.tsx
+│   │   ├── chart.tsx
+│   │   ├── checkbox.tsx
+│   │   ├── collapsible.tsx
+│   │   ├── command.tsx
+│   │   ├── context-menu.tsx
+│   │   ├── dialog.tsx
+│   │   ├── drawer.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   ├── form.tsx
+│   │   ├── hover-card.tsx
+│   │   ├── input-otp.tsx
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   ├── menubar.tsx
+│   │   ├── navigation-menu.tsx
+│   │   ├── pagination.tsx
+│   │   ├── popover.tsx
+│   │   ├── progress.tsx
+│   │   ├── radio-group.tsx
+│   │   ├── resizable.tsx
+│   │   ├── scroll-area.tsx
+│   │   ├── select.tsx
+│   │   ├── separator.tsx
+│   │   ├── sheet.tsx
+│   │   ├── sidebar.tsx
+│   │   ├── skeleton.tsx
+│   │   ├── slider.tsx
+│   │   ├── sonner.tsx
+│   │   ├── switch.tsx
+│   │   ├── table.tsx
+│   │   ├── tabs.tsx
+│   │   ├── textarea.tsx
+│   │   ├── toast.tsx
+│   │   ├── toaster.tsx
+│   │   ├── toggle-group.tsx
+│   │   ├── toggle.tsx
+│   │   ├── tooltip.tsx
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   └── user-nav.tsx
+├── components.json
+├── dir_op.txt
+├── hooks
+│   ├── use-mobile.tsx
+│   └── use-toast.ts
+├── lib
+│   └── utils.ts
+├── next-env.d.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.mjs
+├── public
+│   ├── placeholder-logo.png
+│   ├── placeholder-logo.svg
+│   ├── placeholder-user.jpg
+│   ├── placeholder.jpg
+│   └── placeholder.svg
+├── styles
+│   └── globals.css
+├── tailwind.config.js
+├── tailwind.config.ts
+└── tsconfig.json
+
+19 directories, 109 files

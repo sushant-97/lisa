@@ -1,15 +1,17 @@
 "use client"
 
-import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
+import { Search } from "lucide-react"
 
 const filters = [
-  { id: "all", name: "All (11)", active: true },
-  { id: "ai-matches", name: "AI matches (10)", active: false },
-  { id: "sourced", name: "Sourced (0)", active: false },
-  { id: "applied", name: "Applied (1)", active: false },
+  { id: "all", name: "All", count: 11, active: true },
+  { id: "ai-matches", name: "AI matches", count: 10, active: false },
+  { id: "sourced", name: "Sourced", count: 0, active: false },
+  { id: "applied", name: "Applied", count: 1, active: false },
 ]
 
 const candidates = [
@@ -18,7 +20,7 @@ const candidates = [
     name: "Mia Persona",
     position: "Associate Customer Success Manager",
     initials: "MP",
-    color: "bg-amber-100",
+    color: "bg-amber-100 text-amber-800",
     active: true,
     aiMatch: true,
   },
@@ -27,7 +29,7 @@ const candidates = [
     name: "Lil's Thompson",
     position: "Senior Outbound Sales Developer",
     initials: "LT",
-    color: "bg-blue-100",
+    color: "bg-blue-100 text-blue-800",
     active: false,
     aiMatch: true,
   },
@@ -36,7 +38,7 @@ const candidates = [
     name: "Taylor Bennett",
     position: "Sales Representative",
     initials: "TB",
-    color: "bg-purple-100",
+    color: "bg-purple-100 text-purple-800",
     active: false,
     aiMatch: true,
   },
@@ -45,7 +47,7 @@ const candidates = [
     name: "Sam Samberg",
     position: "Senior Product Designer",
     initials: "SS",
-    color: "bg-cyan-100",
+    color: "bg-cyan-100 text-cyan-800",
     active: false,
     aiMatch: true,
   },
@@ -54,7 +56,7 @@ const candidates = [
     name: "Greatest Boss Scott",
     position: "Customer Success Manager",
     initials: "GS",
-    color: "bg-pink-100",
+    color: "bg-pink-100 text-pink-800",
     active: false,
     aiMatch: true,
   },
@@ -63,7 +65,7 @@ const candidates = [
     name: "Jordan Mitchell",
     position: "Sales Engineer",
     initials: "JM",
-    color: "bg-teal-100",
+    color: "bg-teal-100 text-teal-800",
     active: false,
     aiMatch: true,
   },
@@ -73,7 +75,7 @@ export function CandidatesList() {
   return (
     <div className="border rounded-lg bg-background">
       <div className="p-4">
-        <h3 className="font-medium mb-2">Leads</h3>
+        <h3 className="font-medium text-lg mb-2">Leads</h3>
         <p className="text-sm text-muted-foreground mb-4">
           These are candidates from multiple sources (applications, sourcing, and recommendations by AI) ready for you
           to review.
@@ -85,16 +87,16 @@ export function CandidatesList() {
               key={filter.id}
               variant={filter.active ? "default" : "outline"}
               size="sm"
-              className={cn(filter.active ? "bg-primary text-primary-foreground" : "")}
+              className={cn(filter.active ? "bg-primary text-primary-foreground font-medium" : "")}
             >
-              {filter.name}
+              {filter.name} ({filter.count})
             </Button>
           ))}
         </div>
 
         <div className="relative mb-4">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input type="search" placeholder="Search by name" className="pl-8" />
+          <Input type="search" placeholder="Search by name or position" className="pl-8" />
         </div>
 
         <div className="space-y-2">
@@ -103,12 +105,12 @@ export function CandidatesList() {
               key={candidate.id}
               className={cn(
                 "flex items-center gap-3 p-3 rounded-md cursor-pointer hover:bg-muted",
-                candidate.active ? "bg-muted" : "",
+                candidate.active ? "bg-muted border border-border" : "",
               )}
             >
               <div
                 className={cn(
-                  "h-8 w-8 rounded-full flex items-center justify-center text-sm font-medium",
+                  "h-12 w-12 rounded-full flex items-center justify-center text-sm font-medium",
                   candidate.color,
                 )}
               >
@@ -118,7 +120,16 @@ export function CandidatesList() {
                 <div className="flex items-center justify-between">
                   <p className="font-medium truncate">{candidate.name}</p>
                   {candidate.aiMatch && (
-                    <span className="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded">AI MATCH</span>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Badge className="text-xs bg-blue-100 text-blue-800 hover:bg-blue-200">AI MATCH</Badge>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p className="text-xs">This candidate was matched by our AI based on their skills and experience</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   )}
                 </div>
                 <p className="text-sm text-muted-foreground truncate">{candidate.position}</p>
@@ -155,4 +166,3 @@ export function CandidatesList() {
     </div>
   )
 }
-
